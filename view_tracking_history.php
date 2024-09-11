@@ -80,8 +80,6 @@ if ($doc_id > 0) {
                 <?php endwhile; ?>
             </tbody>
         </table>
-
-        <a href="display_documents.php" class="btn btn-primary no-print">Back to Document List</a>
         <button class="btn btn-secondary no-print" onclick="window.print()">Print Document</button>
     </div>
 

@@ -145,7 +145,8 @@ $result = mysqli_query($conn, $sql);
             </div>
             <div id="layoutSidenav_content">
             <!-- Content Area -->
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="container-fluid px-4">
+
                                 <?php
                                 // Determine which page to load
                                 if (isset($_GET['page'])) {
@@ -163,6 +164,9 @@ $result = mysqli_query($conn, $sql);
                                         case 'delete_user':
                                             include 'delete_user.php';
                                             break;
+                                        case 'view_tracking':
+                                            include 'view_tracking_history.php';
+                                            break;
                                         case 'dashboard':
                                         default:
                                             include 'index.php';
@@ -172,7 +176,8 @@ $result = mysqli_query($conn, $sql);
                                     include 'dashboard.php'; // Load the default dashboard
                                 }
                                 ?>
-                            </main>
+
+            </div>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
