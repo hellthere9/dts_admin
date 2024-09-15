@@ -25,13 +25,13 @@ $result_docs = mysqli_query($conn, $sql_docs);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Tracking System</title>
+    <title>Documents</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Document Tracking System</h2>
+        <h2>Documents</h2>
 
         <!-- Search Form -->
         <form method="POST" class="mb-4" action="index.php?page=display_documents">

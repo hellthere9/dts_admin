@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $sql);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Document Tracking System</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -77,6 +77,9 @@ $result = mysqli_query($conn, $sql);
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_users">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=display_sections">Sections</a>
                         </li>
                         <li class="nav-item">
 
@@ -167,6 +170,15 @@ $result = mysqli_query($conn, $sql);
                                         case 'view_tracking':
                                             include 'view_tracking_history.php';
                                             break;
+                                        case 'display_sections':
+                                                include 'display_sections.php';
+                                                break;
+                                        case 'edit_section':
+                                                include 'edit_section.php';
+                                                break;  
+                                        case 'view_section_users':
+                                                    include 'view_section_users.php';
+                                                    break;  
                                         case 'dashboard':
                                         default:
                                             include 'index.php';
