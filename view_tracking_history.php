@@ -1,6 +1,6 @@
 <?php
 // Include the database connection
-include 'roxcon.php';
+// include 'roxcon.php';
 
 // Get the document ID from the URL
 $doc_id = isset($_GET['doc_id']) ? intval($_GET['doc_id']) : 0;
