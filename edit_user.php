@@ -200,7 +200,6 @@ $conn->close();
         </div>
 
         <button type="submit" class="btn btn-primary">Update User</button>
-        <a href="index.php?page=display_users" class="btn btn-secondary">Back</a>
     </form>
     <?php else: ?>
     <p>User not found. Please go back and try again.</p>

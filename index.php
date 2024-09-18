@@ -1,10 +1,11 @@
 <?php
-session_start();
-ob_start();  // Start output buffering
+// session_start();
+// ob_start();  // Start output buffering
 ?>
 
 <?php
 session_start(); // Start the session
+ob_start();
 
 // Include the database connection
 include 'roxcon.php';
@@ -142,7 +143,7 @@ $result = mysqli_query($conn, $sql);
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <p><?php echo $_SESSION['fullname']; ?></p>
                     </div>
                 </nav>
             </div>
@@ -178,14 +179,17 @@ $result = mysqli_query($conn, $sql);
                                                 break;  
                                         case 'view_section_users':
                                                     include 'view_section_users.php';
-                                                    break;  
+                                                    break; 
+                                        case 'add_user':
+                                                include 'add_users.php';
+                                                break; 
                                         case 'dashboard':
                                         default:
                                             include 'index.php';
                                             break;
                                     }
                                 } else {
-                                    include 'dashboard.php'; // Load the default dashboard
+                                    // include 'dashboard.php'; // Load the default dashboard
                                 }
                                 ?>
 
