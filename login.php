@@ -15,26 +15,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-
+    
         // Assuming you're not hashing the password for testing
         if ($password == $row['password']) {
-            $_SESSION['user_id'] = $row['users_id'];
-            $_SESSION['fullname'] = $row['fullname'];
-            
-            // Redirect with a success message to index.php
-            header("Location: index.php?login_success=true");
-            exit();
+            if ($row['system_admin'] == 1) {
+                // Set session variables for the logged-in user
+                $_SESSION['user_id'] = $row['users_id'];
+                $_SESSION['fullname'] = $row['fullname'];
+                $_SESSION['system_admin'] = $row['system_admin'];
+    
+                // Redirect with a success message to index.php
+                header("Location: index.php?login_success=true");
+                exit();
+            } else {
+                // If the user is not a system admin, deny access
+                echo "You do not have permission to access this page.";
+            }
         } else {
             echo "Invalid password.";
         }
     } else {
         echo "No user found with this email.";
     }
+    
 
     $stmt->close();
     $conn->close();
 };
 ?>
+
+<!-- Your HTML form stays the same -->
+
 
 
 <!DOCTYPE html>

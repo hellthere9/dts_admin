@@ -11,8 +11,14 @@ ob_start();
 include 'roxcon.php';
 
 // Check if the user is logged in
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: login.php"); // Redirect to login page if not logged in
+//     exit();
+// }
+
+// Check if the user is logged in and is a system admin|| $_SESSION['system_admin'] != 1
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirect to login page if not logged in
+    header("Location: login.php"); // Redirect to login page if not authorized
     exit();
 }
 
