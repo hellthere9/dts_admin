@@ -48,7 +48,7 @@ $conn->close();
 
 <div class="container mt-5">
     <h2 class="mb-4">
-    <a href="add_users.php?>" class="btn btn-primary btn-sm">Add</a>    
+    <a href="index.php?page=add_user" class="btn btn-primary btn-sm">Add</a>    
     Users List</h2>
     <table class="table table-bordered table-striped">
         <thead class="table-dark">

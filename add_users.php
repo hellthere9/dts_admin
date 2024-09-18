@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-include 'roxcon.php';
+// include 'roxcon.php';
 
 // Define the section options
 $sections = [
@@ -163,8 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <button type="submit" class="btn btn-primary">Add User</button>
-
-        <a href="display_users.php" class="btn btn-secondary">Back</a>
     </form>
 </div>
 
