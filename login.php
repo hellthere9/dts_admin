@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $row['users_id'];
                 $_SESSION['fullname'] = $row['fullname'];
                 $_SESSION['system_admin'] = $row['system_admin'];
-    
+                $_SESSION['section_id'] = $row['dts_section_id'];
+
                 // Redirect with a success message to index.php
                 header("Location: index.php?login_success=true");
                 exit();

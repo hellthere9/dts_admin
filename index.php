@@ -89,6 +89,9 @@ $result = mysqli_query($conn, $sql);
                             <a class="nav-link" href="index.php?page=display_sections">Sections</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=display_section_documents">My Section's Documents</a>
+                        </li>
+                        <li class="nav-item">
 
 
 
@@ -189,6 +192,9 @@ $result = mysqli_query($conn, $sql);
                                         case 'add_user':
                                                 include 'add_users.php';
                                                 break; 
+                                        case 'display_section_documents': // Add this case
+                                                include 'display_section_document.php';
+                                                break;
                                         case 'dashboard':
                                         default:
                                             include 'index.php';
