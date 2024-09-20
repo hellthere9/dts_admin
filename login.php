@@ -29,14 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: index.php?login_success=true");
                 exit();
             } else {
-                // If the user is not a system admin, deny access
-                echo "You do not have permission to access this page.";
+                // Display alert if invalid credentials or not system admin
+                echo "<script>alert('Invalid email, password, or you do not have system admin access.'); window.location.href = 'login.php';</script>";
             }
         } else {
-            echo "Invalid password.";
+            echo "<script>alert('Invalid email, password, or you do not have system admin access.'); window.location.href = 'login.php';</script>";
         }
     } else {
-        echo "No user found with this email.";
+        echo "<script>alert('Invalid email, password, or you do not have system admin access.'); window.location.href = 'login.php';</script>";
     }
     
 
