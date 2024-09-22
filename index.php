@@ -74,7 +74,7 @@ $result = mysqli_query($conn, $sql);
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="index.php?page=display_section_documents">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -87,9 +87,6 @@ $result = mysqli_query($conn, $sql);
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_sections">Sections</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=display_section_documents">My Section's Documents</a>
                         </li>
                         <li class="nav-item">
 
@@ -195,12 +192,9 @@ $result = mysqli_query($conn, $sql);
                                         case 'display_section_documents': // Add this case
                                                 include 'display_section_document.php';
                                                 break;
-                                        case 'dashboard':
-                                        default:
-                                            include 'index.php';
-                                            break;
                                     }
                                 } else {
+                                    include 'display_section_document.php';
                                     // include 'dashboard.php'; // Load the default dashboard
                                 }
                                 ?>
