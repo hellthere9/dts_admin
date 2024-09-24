@@ -41,6 +41,8 @@ $result = mysqli_query($conn, $sql);
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Add your favicon -->
+        <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -99,13 +101,14 @@ $result = mysqli_query($conn, $sql);
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Links
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="https://www.deped.gov.ph/" target=_blank>DepEd Website</a>
+                                    <a class="nav-link" href="https://r10.deped.gov.ph/" target=_blank>R10 Website</a>
+                                    <a class="nav-link" href="https://depedph-my.sharepoint.com/:f:/g/personal/ralphsimon_mabulay_deped_gov_ph/EhqTBDr_oolKhdglpMXl6NYBX3yPu0rzi59JJVbkmXk1xw?e=vmfowW" target=_blank>Templates</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

@@ -62,29 +62,31 @@ $conn->close();
             </tr>
         </thead>
         <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    $section_name = $sections[$row['dts_section_id']] ?? 'Unknown';
-                    echo "<tr>";
-                    echo "<td>" . $row['users_id'] . "</td>";
-                    echo "<td>" . $row['fullname'] . "</td>";
-                    echo "<td>" . $row['email'] . "</td>";
-                    echo "<td>" . $row['designation'] . "</td>";
-                    echo "<td>" . $section_name . "</td>";
-                    echo "<td>";
-                    // echo "<a href='edit_user.php?id=" . $row['users_id'] . "' class='btn btn-sm btn-warning me-2'>Edit</a>";
-                    // echo "<a href='delete_user.php?id=" . $row['users_id'] . "' class='btn btn-sm btn-danger'>Delete</a>";
-                    echo "<a href='index.php?page=edit_user&id=" . $row['users_id'] . "' class='btn btn-sm btn-warning me-2'>Edit</a>";
-                    echo "<a href='index.php?page=delete_user&id=" . $row['users_id'] . "' class='btn btn-sm btn-danger'>Delete</a>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='6' class='text-center'>No users found</td></tr>";
+        <?php
+        if ($result->num_rows > 0) {
+             // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                 $section_name = $sections[$row['dts_section_id']] ?? 'Unknown';
+                echo "<tr>";
+                echo "<td>" . $row['users_id'] . "</td>";
+
+                // Check if the user is a system admin and add the image if true
+                $admin_image = $row['system_admin'] == 1 ? "<img src='images/admin-panel.png' alt='Admin Panel' style='width: 20px; height: 20px; margin-left: 5px;'>" : "";
+                echo "<td>" . $row['fullname'] . " " . $admin_image . "</td>";
+
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['designation'] . "</td>";
+                echo "<td>" . $section_name . "</td>";
+                echo "<td>";
+                echo "<a href='index.php?page=edit_user&id=" . $row['users_id'] . "' class='btn btn-sm btn-warning me-2'>Edit</a>";
+                echo "<a href='index.php?page=delete_user&id=" . $row['users_id'] . "' class='btn btn-sm btn-danger'>Delete</a>";
+                echo "</td>";
+                echo "</tr>";
             }
-            ?>
+        } else {
+                echo "<tr><td colspan='6' class='text-center'>No users found</td></tr>";
+        }
+        ?>
         </tbody>
     </table>
 </div>

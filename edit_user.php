@@ -199,6 +199,14 @@ $conn->close();
             <input type="text" id="user_type" name="user_type" class="form-control" value="<?php echo $user['user_type']; ?>" required>
         </div>
 
+        <div class="form-group mb-3">
+        <label for="system_admin">System Admin</label>
+        <select class="form-control" id="system_admin" name="system_admin" required>
+            <option value="1" <?php if ($user['system_admin'] == 1) echo 'selected'; ?>>Yes</option>
+            <option value="0" <?php if ($user['system_admin'] == 0) echo 'selected'; ?>>No</option>
+        </select>
+    </div>
+
         <button type="submit" class="btn btn-primary">Update User</button>
     </form>
     <?php else: ?>
