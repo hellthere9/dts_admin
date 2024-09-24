@@ -16,7 +16,9 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="mb-4">Sections List</h2>
+        <h2 class="mb-4">
+        <a href="index.php?page=add_section" class="btn btn-primary btn-sm">Add</a>
+        Sections List</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>

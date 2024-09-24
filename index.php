@@ -76,7 +76,7 @@ $result = mysqli_query($conn, $sql);
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.php?page=display_section_documents">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                My Documents
                             </a>
                             <ul class="nav flex-column">
                         <li class="nav-item">
@@ -87,6 +87,9 @@ $result = mysqli_query($conn, $sql);
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_sections">Sections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=google_calendar">Function Rooms Reservation Schedule</a>
                         </li>
                         <li class="nav-item">
 
@@ -191,6 +194,11 @@ $result = mysqli_query($conn, $sql);
                                                 break; 
                                         case 'display_section_documents': // Add this case
                                                 include 'display_section_document.php';
+                                                break;
+                                        case 'add_section': // New case for Add Section page
+                                                include 'add_section_form.php';
+                                        break; case 'google_calendar':
+                                                include 'google_calendar.php';  // Add this line for the Google Calendar
                                                 break;
                                     }
                                 } else {
