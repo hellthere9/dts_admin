@@ -27,14 +27,12 @@ if (!$result_docs) {
 
 <!-- Bootstrap Table for displaying documents -->
 <div class="container mt-5">
-    <h2 class="mb-4">Documents for Your Section</h2>
+    <h2 class="mb-4">Inbox</h2>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Document ID</th>
                 <th>Tracking Number</th>
                 <th>Description</th>
-                <th>Receiving Section</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -42,10 +40,8 @@ if (!$result_docs) {
             <?php if (mysqli_num_rows($result_docs) > 0): ?>
                 <?php while ($row = mysqli_fetch_assoc($result_docs)): ?>
                     <tr>
-                        <td><?php echo $row['doc_id']; ?></td>
                         <td><?php echo $row['doc_tracking']; ?></td>
                         <td><?php echo $row['docs_description']; ?></td>
-                        <td><?php echo $row['section_description']; ?></td> <!-- Get from section_description -->
                         <td>
                             <!-- Actions: View tracking history -->
                             <a href='index.php?page=view_tracking&doc_id=<?php echo $row["doc_id"]; ?>' class='btn btn-info btn-sm'>View Tracking History</a>
