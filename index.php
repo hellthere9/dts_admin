@@ -82,6 +82,12 @@ $result = mysqli_query($conn, $sql);
                             </a>
                             <ul class="nav flex-column">
                         <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=load_section_documents">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                            Inbox
+                        </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_documents">Documents</a>
                         </li>
                         <li class="nav-item">
@@ -202,6 +208,9 @@ $result = mysqli_query($conn, $sql);
                                                 include 'add_section_form.php';
                                         break; case 'google_calendar':
                                                 include 'google_calendar.php';  // Add this line for the Google Calendar
+                                                break;
+                                        case 'load_section_documents': // Load your new module
+                                                include 'load_section_documents.php';
                                                 break;
                                     }
                                 } else {

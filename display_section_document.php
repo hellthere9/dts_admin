@@ -24,11 +24,8 @@ $result_docs = mysqli_query($conn, $sql);
     <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Document ID</th>
                 <th scope="col">Tracking Number</th>
                 <th scope="col">Description</th>
-                <th scope="col">Origin School</th>
-                <th scope="col">Receiving Section</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -36,11 +33,8 @@ $result_docs = mysqli_query($conn, $sql);
             <?php if (mysqli_num_rows($result_docs) > 0): ?>
                 <?php while ($row = mysqli_fetch_assoc($result_docs)): ?>
                     <tr>
-                        <td><?php echo $row['doc_id']; ?></td>
                         <td><?php echo $row['doc_tracking']; ?></td>
                         <td><?php echo $row['docs_description']; ?></td>
-                        <td><?php echo $row['origin_school']; ?></td>
-                        <td><?php echo $row['receiving_section_desc']; ?></td>
                         <td>
                             <!-- Link to view tracking history -->
                             <a href='index.php?page=view_tracking&doc_id=<?php echo $row['doc_id']; ?>' class='btn btn-info btn-sm'>View Tracking History</a>

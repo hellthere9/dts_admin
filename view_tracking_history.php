@@ -6,10 +6,20 @@
 $doc_id = isset($_GET['doc_id']) ? intval($_GET['doc_id']) : 0;
 
 if ($doc_id > 0) {
-    // Query to fetch document details
-    $sql_doc = "SELECT * FROM dts_docs WHERE doc_id = '$doc_id'";
+    // Query to fetch document details along with receiving section description
+    $sql_doc = "
+        SELECT d.*, s.section_description 
+        FROM dts_docs d
+        LEFT JOIN dts_sections s ON d.receiving_section = s.section_id
+        WHERE d.doc_id = '$doc_id'";
+    
     $result_doc = mysqli_query($conn, $sql_doc);
-    $document = mysqli_fetch_assoc($result_doc);
+    if ($result_doc && mysqli_num_rows($result_doc) > 0) {
+        $document = mysqli_fetch_assoc($result_doc);
+    } else {
+        echo "No document found.";
+        exit;
+    }
 
     // Query to fetch tracking history
     $sql_tracking = "SELECT * FROM dts_docroutes WHERE document_id = '$doc_id' ORDER BY datetime_forwarded ASC";
@@ -50,7 +60,7 @@ if ($doc_id > 0) {
                 <p><strong>Tracking Number:</strong> <?php echo $document['doc_tracking']; ?></p>
                 <p><strong>Description:</strong> <?php echo $document['docs_description']; ?></p>
                 <p><strong>Origin:</strong> <?php echo $document['origin_school']; ?></p>
-                <p><strong>Receiving Section:</strong> <?php echo $document['receiving_section']; ?></p>
+                <p><strong>Receiving Section:</strong> <?php echo $document['section_description']; ?></p> <!-- Updated to show section description -->
             </div>
         </div>
 
