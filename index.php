@@ -87,9 +87,9 @@ $result = mysqli_query($conn, $sql);
                             Inbox
                         </a>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_documents">Documents</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_users">Users</a>
                         </li>

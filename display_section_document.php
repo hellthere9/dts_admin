@@ -12,7 +12,7 @@ $sql = "SELECT dts_docs.doc_id, dts_docs.doc_tracking, dts_docs.docs_description
         INNER JOIN dts_sections ON dts_docs.receiving_section = dts_sections.section_id
         WHERE dts_docs.origin_section = $section_id
         ORDER BY dts_docs.doc_id DESC
-        LIMIT 20";
+        LIMIT 100";
 
 $result_docs = mysqli_query($conn, $sql);
 ?>
@@ -22,7 +22,7 @@ $result_docs = mysqli_query($conn, $sql);
 <div class="container mt-5">
     <h2 class="mb-4">   
     <a href="index.php?page=add_document" class="btn btn-primary btn-sm">Add</a>       
-    Documents from Your Section</h2>
+    Documents Created</h2>
     <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
             <tr>

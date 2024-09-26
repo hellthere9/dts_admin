@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $query);
                     <th>Initial Receipt</th>
                     <th>Public View</th>
                     <th>Active</th>
-                    <th>Actions</th>
+                    <th width="14%" >Actions</th>
                 </tr>
             </thead>
             <tbody>
