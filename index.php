@@ -87,9 +87,9 @@ $result = mysqli_query($conn, $sql);
                             Inbox
                         </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_documents">Documents</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_users">Users</a>
                         </li>
@@ -201,7 +201,7 @@ $result = mysqli_query($conn, $sql);
                                         case 'add_user':
                                                 include 'add_users.php';
                                                 break; 
-                                        case 'display_section_documents': // Add this case
+                                        case 'display_section_documents': // Documents made by you
                                                 include 'display_section_document.php';
                                                 break;
                                         case 'add_section': // New case for Add Section page
@@ -209,8 +209,11 @@ $result = mysqli_query($conn, $sql);
                                         break; case 'google_calendar':
                                                 include 'google_calendar.php';  // Add this line for the Google Calendar
                                                 break;
-                                        case 'load_section_documents': // Load your new module
+                                        case 'load_section_documents': // Inbox
                                                 include 'load_section_documents.php';
+                                                break;
+                                        case 'add_document': // Load your new module
+                                                include 'add_document.php';
                                                 break;
                                     }
                                 } else {

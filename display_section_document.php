@@ -1,7 +1,7 @@
 <?php
 // Start the session and include database connection
 // session_start();
-// include 'roxcon.php';
+include 'roxcon.php';
 
 // Retrieve the logged-in user's section ID from the session
 $section_id = $_SESSION['section_id']; // Assuming section_id is stored in session
@@ -20,13 +20,15 @@ $result_docs = mysqli_query($conn, $sql);
 
 <!-- Display the documents in a Bootstrap table -->
 <div class="container mt-5">
-    <h2 class="mb-4">Documents from Your Section</h2>
+    <h2 class="mb-4">   
+    <a href="index.php?page=add_document" class="btn btn-primary btn-sm">Add</a>       
+    Documents from Your Section</h2>
     <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Tracking Number</th>
                 <th scope="col">Description</th>
-                <th scope="col">Actions</th>
+                <th width="18%" scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +40,7 @@ $result_docs = mysqli_query($conn, $sql);
                         <td>
                             <!-- Link to view tracking history -->
                             <a href='index.php?page=view_tracking&doc_id=<?php echo $row['doc_id']; ?>' class='btn btn-info btn-sm'>View Tracking History</a>
+                            <a href="delete_document.php?doc_id=<?php echo $row['doc_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this document and its tracking history?');">Delete</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

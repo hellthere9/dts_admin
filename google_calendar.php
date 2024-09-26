@@ -32,7 +32,6 @@
 <body>
 
 <div class="container mt-5">
-    <h2 class="text-center">Function Rooms Reservation Schedule</h2>
 
     <div class="calendar-container">
         <!-- Replace the src value below with your Google Calendar embed link -->
