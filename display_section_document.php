@@ -20,8 +20,7 @@ $result_docs = mysqli_query($conn, $sql);
 
 <!-- Display the documents in a Bootstrap table -->
 <div class="container mt-5">
-    <h2 class="mb-4">   
-    <a href="index.php?page=add_document" class="btn btn-primary btn-sm">Add</a>       
+    <h2 class="mb-4">          
     Documents Created</h2>
     <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">

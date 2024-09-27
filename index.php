@@ -41,8 +41,18 @@ $result = mysqli_query($conn, $sql);
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         <!-- Add your favicon -->
         <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
+
+        <style>
+        .clock {
+        color: white; /* Change the text color to white */
+        font-size: 1.5rem;
+        }
+        </style>
+
+        
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -53,8 +63,31 @@ $result = mysqli_query($conn, $sql);
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <div class="clock" id="clock"></div>
+                <script>
+                function updateClock() {
+                    // Get the current date and time
+                         const now = new Date();
+
+                    // Format the time
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+                    // Combine the time into a string
+                    const currentTime = `${hours}:${minutes}:${seconds}`;
+
+                    // Display the time in the HTML element
+                    document.getElementById('clock').textContent = currentTime;
+                    }
+
+                    // Update the clock immediately and then every second
+                    updateClock();
+                    setInterval(updateClock, 1000);
+                </script>
+
+                    <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
                 </div>
             </form>
             <!-- Navbar-->
@@ -76,30 +109,34 @@ $result = mysqli_query($conn, $sql);
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         <a href="index.php?page=add_document" class="btn btn-primary btn-lg">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#composeModal">
+                            <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#composeModal"> -->
                                 <i class="fas fa-plus-circle"></i> Compose
-                            </button>
+                            <!-- </button> -->
                             </a>
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.php?page=display_section_documents">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <i class="fas fa-file-alt me-2"></i>
                                 My Documents
                             </a>
                             <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=load_section_documents">
-                            <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                            <i class="fas fa-envelope me-2"></i>
                             Inbox
                         </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=display_documents">Documents</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=display_users">Users</a>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="index.php?page=display_users">
+                                <i class="fas fa-users me-2"></i> Users
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=display_sections">Sections</a>
+                            <a class="nav-link" href="index.php?page=display_sections">
+                                <i class="fas fa-folder me-2"></i> Sections
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?page=google_calendar">Function Rooms Reservation Schedule</a>
@@ -166,7 +203,8 @@ $result = mysqli_query($conn, $sql);
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        <p><?php echo $_SESSION['fullname']; ?></p>
+                        <p><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: green; margin-right: 5px;"></span>
+                        <?php echo $_SESSION['fullname']; ?></p>
                     </div>
                 </nav>
             </div>
@@ -249,6 +287,7 @@ $result = mysqli_query($conn, $sql);
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        
     </body>
 </html>
 <?php ob_end_flush(); // Flush the output buffer ?>
