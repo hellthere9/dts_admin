@@ -10,7 +10,7 @@ if ($doc_id > 0) {
     $sql_doc = "
         SELECT d.*, s.section_description 
         FROM dts_docs d
-        LEFT JOIN dts_sections s ON d.receiving_section = s.section_id
+        JOIN dts_sections s ON d.receiving_section = s.section_id
         WHERE d.doc_id = '$doc_id'";
     
     $result_doc = mysqli_query($conn, $sql_doc);
