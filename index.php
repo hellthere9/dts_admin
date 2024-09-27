@@ -75,6 +75,11 @@ $result = mysqli_query($conn, $sql);
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
+                        <a href="index.php?page=add_document" class="btn btn-primary btn-lg">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#composeModal">
+                                <i class="fas fa-plus-circle"></i> Compose
+                            </button>
+                            </a>
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.php?page=display_section_documents">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
